@@ -47,7 +47,7 @@ void setup() {
   theta_acc = 1e-2;
   //tt = (float)2*60/120;
   scale = min(width,height);
-  wert = 1/(cos(PI/4)*sin(PI/4));
+  // wert = 1/(cos(PI/4)*sin(PI/4));
 } 
 
 void draw(){
