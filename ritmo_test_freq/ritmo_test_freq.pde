@@ -23,10 +23,10 @@ int bands = int(pow(2,9));
 float[] spectrum = new float[bands];
 
 void setup() {
-	//size(1000, 1000);
-	//fullScreen(P2D);
-	fullScreen();
-	//frameRate(120);
+//size(1000, 1000);
+//fullScreen(P2D);
+  fullScreen();
+//frameRate(120);
   smooth();
   
   fft = new FFT(this, bands);
