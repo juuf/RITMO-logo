@@ -16,7 +16,7 @@ int rad_pos;
 float t_rad;
 float t_init;
 boolean init;
-float wert;
+//float wert;
 //int counter;
 
 int bands = int(pow(2,9));
@@ -35,7 +35,7 @@ void setup() {
   loudness = new Amplitude(this);
   loudness.input(input);
   
-	sc=new ShapeContainer("",17);     
+  sc=new ShapeContainer("",17);     
   intVec();
 
   fft.input(input);
@@ -51,7 +51,7 @@ void setup() {
 } 
 
 void draw(){
-	background(255);
+  background(255);
 
   //float inputLevel = map(mouseY, 0, height, 1.0, 0.0);
   input.amp(0);
@@ -63,9 +63,6 @@ void draw(){
   
   fft.analyze(spectrum);
   size = ((spectrum[0]+spectrum[1])/2+spectrum[3]*0.3)*10;
-    
-  //println(spectrum[0]);
-  //println(size);
 
   if (t_init < 5) {
     r = r_con*(50*exp(-3*t_init));
@@ -81,8 +78,6 @@ void draw(){
     r = r_con*radien[rad_pos];
     if (theta<=radien[radien.length/2+rad_pos]&&abs(size)>=0.1) { 
      if (theta_vel <= 0.03) { theta_vel += theta_acc*size*0.3; }
-  //    println(theta_vel);
-  //println(1);
       theta += theta_vel;
       if (t_rad<=20){ t_rad += 0.05*(size*1.3);}
       drawPositions(0, new PVector(scale_,scale_), r, theta);
@@ -91,7 +86,6 @@ void draw(){
       theta_vel += -theta_acc*sign(theta_vel,theta)*40*signw(theta_vel);
       theta += theta_vel*10*signw(theta);
       t_rad += -t_rad*0.05*sign(t_rad,theta);   
-  //    println(2);
       drawPositions(0, new PVector(scale_,scale_), r, theta);  
       if (theta_vel<=0&&theta>=radien[radien.length/2+rad_pos]*.75) { 
         scale+=-.1*scale;
@@ -108,7 +102,6 @@ void draw(){
     }
   }
 //println(frameRate);
-//println(theta);
 }
 
 
